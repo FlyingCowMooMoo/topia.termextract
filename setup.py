@@ -23,17 +23,17 @@ def read(*rnames):
 
 setup (
     name='topia.termextract',
-    version='1.1.0',
+    version='1.1.1',
     author = "Stephan Richter, Russ Ferriday and the Zope Community",
     author_email = "zope3-dev@zope.org",
     description = "Content Term Extraction using POS Tagging",
     long_description=(
-        read('README.txt')
+        read('README.md')
         + '\n\n' +
         'Detailed Documentation\n'
         '**********************\n'
         + '\n' +
-        read('src', 'topia', 'termextract', 'README.txt')
+        read('src', 'topia', 'termextract', 'README.md')
         + '\n\n' +
         read('src', 'topia', 'termextract', 'example.txt')
         + '\n\n' +

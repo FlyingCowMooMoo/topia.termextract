@@ -57,8 +57,8 @@ def _keepterm(multiterm, terms, KEEP_ORIGINAL_SPACING):
     terms.setdefault(word, 0)
     terms[word] += 1
 
+@zope.interface.implementer(interfaces.ITermExtractor)
 class TermExtractor(object):
-    zope.interface.implements(interfaces.ITermExtractor)
 
     def __init__(self, tagger=None, filter=None):
         if tagger is None:

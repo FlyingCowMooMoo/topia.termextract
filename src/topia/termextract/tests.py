@@ -30,7 +30,7 @@ def printTaggedTerms(terms):
 def test_suite():
     return unittest.TestSuite((
         DocFileSuite(
-            'README.txt',
+            'README.md',
             optionflags=doctest.NORMALIZE_WHITESPACE|doctest.ELLIPSIS,
             ),
         DocFileSuite(
