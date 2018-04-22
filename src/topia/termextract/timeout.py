@@ -6,14 +6,19 @@ http://www.saltycrane.com/blog/2010/04/using-python-timeout-decorator-uploading-
 
 import signal
 
+
 class TimeoutError(Exception):
+
     def __init__(self, value = "Timed Out"):
         self.value = value
+
     def __str__(self):
         return repr(self.value)
 
+
 def timeout(seconds_before_timeout):
     def decorate(f):
+        if not hasattr(signal, "SIGALRM"): return f
         def handler(signum, frame):
             raise TimeoutError()
         def new_f(*args, **kwargs):
@@ -25,7 +30,7 @@ def timeout(seconds_before_timeout):
                 signal.signal(signal.SIGALRM, old)
             signal.alarm(0)
             return result
-        new_f.func_name = f.func_name
+        new_f.__name__ = f.__name__
         return new_f
     return decorate
 

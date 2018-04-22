@@ -18,28 +18,30 @@ $Id: setup.py 101333 2009-06-30 03:03:10Z srichter $
 import os
 from setuptools import setup, find_packages
 
+
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-setup (
+
+setup(
     name='topia.termextract',
     version='1.1.1',
-    author = "Stephan Richter, Russ Ferriday and the Zope Community",
-    author_email = "zope3-dev@zope.org",
-    description = "Content Term Extraction using POS Tagging",
+    author="Stephan Richter, Russ Ferriday and the Zope Community",
+    author_email="zope3-dev@zope.org",
+    description="Content Term Extraction using POS Tagging",
     long_description=('\n\n' +
-        'Detailed Documentation\n'
-        '**********************\n'
-        + '\n' +
-        read('README.md')
-        + '\n\n' +
-        read('src', 'topia', 'termextract', 'example.txt')
-        + '\n\n' +
-        read('CHANGES.txt')
-        ),
-    license = "ZPL 2.1",
-    keywords = "content term extract pos tagger linguistics",
-    classifiers = [
+                      'Detailed Documentation\n'
+                      '**********************\n'
+                      + '\n' +
+                      read('README.md')
+                      + '\n\n' +
+                      read('src', 'topia', 'termextract', 'example.txt')
+                      + '\n\n' +
+                      read('CHANGES.txt')
+                      ),
+    license="ZPL 2.1",
+    keywords="content term extract pos tagger linguistics",
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -47,17 +49,18 @@ setup (
         'Programming Language :: Python',
         'Natural Language :: English',
         'Operating System :: OS Independent'],
-    url = 'http://pypi.python.org/pypi/topia.termextract',
-    packages = find_packages('src'),
-    include_package_data = True,
-    package_dir = {'':'src'},
-    namespace_packages = ['topia'],
-    extras_require = dict(
-        test = ['zope.testing'],
-        ),
-    install_requires = [
+    url='http://pypi.python.org/pypi/topia.termextract',
+    packages=find_packages('src'),
+    include_package_data=True,
+    package_dir={'': 'src'},
+    namespace_packages=['topia'],
+    extras_require=dict(
+        test=['zope.testing'],
+    ),
+    install_requires=[
         'setuptools',
         'zope.interface',
-        ],
-    zip_safe = False,
-    )
+        'regex'
+    ],
+    zip_safe=False,
+)

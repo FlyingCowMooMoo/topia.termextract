@@ -16,20 +16,15 @@
 
 $Id: tag.py 100555 2009-05-30 15:26:12Z srichter $
 """
-import sys
 import os
 import re
-import re2              # Use re2 if we get killed by exponential regex evaluation.
-                        # This used to happen with an old TERM_SPEC regex,
-                        # and now will generally timeout if there are 300 dots in a row.
-                        # DOWNLOAD AT: https://github.com/axiak/pyre2
-                        # (see Python bug http://bugs.python.org/issue1662581)
-re2.set_fallback_notification(re2.FALLBACK_WARNING)
+import regex
+
+
+from zope.interface import implementer
 
 # Timeout re requests
-from timeout import timeout, TimeoutError
-
-import zope.interface
+from .timeout import timeout, TimeoutError
 
 from topia.termextract import interfaces
 
@@ -41,7 +36,7 @@ TERM_SPEC = re.compile('([\W\d_]*)(([^\W\d_]?[-\.]?)*[^\W\d_])([\W\d_]*[^\W\d_]*
 # TERM_SPEC2 is faster (because it uses re2) but it DOESN'T handle Unicode
 # correctly (https://github.com/axiak/pyre2/issues/5). So only use re2 if
 # re times out.
-TERM_SPEC2 = re2.compile('([\W\d_]*)(([^\W\d_]?[-\.]?)*[^\W\d_])([\W\d_]*[^\W\d_]*)', re2.UNICODE)
+TERM_SPEC2 = regex.compile('([\W\d_]*)(([^\W\d_]?[-\.]?)*[^\W\d_])([\W\d_]*[^\W\d_]*)', regex.UNICODE)
 DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), 'data')
 
 
@@ -104,7 +99,7 @@ def normalizePluralForms(idx, tagged_term, tagged_terms, lexicon):
             return
 
 
-@zope.interface.implementer(interfaces.ITagger)
+@implementer(interfaces.ITagger)
 class Tagger(object):
 
     rules = (

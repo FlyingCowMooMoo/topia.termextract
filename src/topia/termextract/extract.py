@@ -15,7 +15,7 @@
 
 $Id: extract.py 100557 2009-05-30 15:48:36Z srichter $
 """
-import zope.interface
+from zope.interface import implementer
 
 from topia.termextract import interfaces, tag
 
@@ -57,7 +57,7 @@ def _keepterm(multiterm, terms, KEEP_ORIGINAL_SPACING):
     terms.setdefault(word, 0)
     terms[word] += 1
 
-@zope.interface.implementer(interfaces.ITermExtractor)
+@implementer(interfaces.ITermExtractor)
 class TermExtractor(object):
 
     def __init__(self, tagger=None, filter=None):

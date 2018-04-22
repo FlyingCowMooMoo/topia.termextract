@@ -5,4 +5,4 @@ extractor = extract.TermExtractor()
 
 extractor.filter = extract.permissiveFilter
 
-print extractor("The fox can't jump over the fox's tail.")
+print(extractor("The fox can't jump over the fox's tail."))
