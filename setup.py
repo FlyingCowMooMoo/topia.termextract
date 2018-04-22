@@ -27,13 +27,11 @@ setup (
     author = "Stephan Richter, Russ Ferriday and the Zope Community",
     author_email = "zope3-dev@zope.org",
     description = "Content Term Extraction using POS Tagging",
-    long_description=(
-        read('README.md')
-        + '\n\n' +
+    long_description=('\n\n' +
         'Detailed Documentation\n'
         '**********************\n'
         + '\n' +
-        read('src', 'topia', 'termextract', 'README.md')
+        read('README.md')
         + '\n\n' +
         read('src', 'topia', 'termextract', 'example.txt')
         + '\n\n' +
