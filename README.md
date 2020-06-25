@@ -8,10 +8,10 @@ Fixes :
 
 To install, simple add the following to your `requirements.txt` file
 ```
-git+git://github.com/PeteShag/topia.termextract.git
+git+git://github.com/FlyingCowMooMoo/topia.termextract.git
 ```
 
 or to install using `pip` run the following:  
 ```
-pip install git+git://github.com/PeteShag/topia.termextract.git
+pip install git+git://github.com/FlyingCowMooMoo/topia.termextract.git
 ```
